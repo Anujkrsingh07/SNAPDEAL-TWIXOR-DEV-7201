@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Snapdeal Clone</title>
+  <link rel="icon" href="https://www.snapdeal.com/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-red: #e4002b;
+      --dark-gray: #333333;
+      --light-gray: #f4f4f4;
+      --white: #ffffff;
+      --border-color: #e0e0e0;
+      --text-gray: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f7f7f7;
+      color: var(--dark-gray);
+    }
+
+    header {
+      background-color: var(--primary-red);
+      padding: 15px 0;
+      color: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      text-decoration: none;
+      color: white;
+      letter-spacing: -1px;
+    }
+
+    .cart-main {
+      padding: 40px 0;
+    }
+
+    .cart-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+
+    .cart-items-section {
+      background: white;
+      padding: 25px;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .cart-title {
+      font-size: 20px;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    .empty-cart i {
+      font-size: 80px;
+      color: #eee;
+      margin-bottom: 20px;
+    }
+
+    .empty-cart h2 {
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .shop-now-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--primary-red);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 700;
+      transition: opacity 0.3s;
+    }
+
+    .shop-now-btn:hover {
+      opacity: 0.9;
+    }
+
+    .summary-section {
+      background: white;
+      padding: 25px;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      height: fit-content;
+    }
+
+    .summary-title {
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .summary-row.total {
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+      margin-top: 15px;
+      font-weight: 700;
+      font-size: 18px;
+      color: #000;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 15px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    .checkout-btn:hover {
+      background: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #999;
+      font-size: 13px;
+    }
+
+    @media (max-width: 992px) {
+      .cart-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-content">
+      <a href="index.html" class="logo">Snapdeal</a>
+      <div class="secure-info">
+        <i class="fas fa-lock"></i> 100% Secure Payments
+      </div>
+    </div>
+  </header>
+
+  <main class="cart-main">
+    <div class="container">
+      <div class="cart-container">
+        
+        <!-- Cart Items -->
+        <div class="cart-items-section">
+          <h1 class="cart-title">Shopping Cart (0 items)</h1>
+          
+          <div class="empty-cart">
+            <i class="fas fa-shopping-basket"></i>
+            <h2>Your shopping bag is empty!</h2>
+            <p style="margin-bottom: 25px; color: #999;">Explore our best categories and deals.</p>
+            <a href="index.html" class="shop-now-btn">SHOP NOW</a>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-section">
+          <h2 class="summary-title">Order Summary</h2>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span>₹0</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping Charges</span>
+            <span style="color: #4CAF50;">FREE</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total Amount</span>
+            <span>₹0</span>
+          </div>
+          <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+          
+          <div style="margin-top: 20px; font-size: 12px; color: #999; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-shield-alt" style="font-size: 20px; color: #4CAF50;"></i>
+            TrustPay: 100% Moneyback Guarantee. 7 Days Easy Returns.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Snapdeal Clone. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Snapdeal - Shop online for the best deals on fashion, electronics, home & kitchen and more. Free delivery, easy returns and great prices.">
+
+  <!-- Page Title -->
+  <title>Snapdeal | Online Shopping India</title>
+
+  <!-- Favicon (Title Logo) -->
+<link rel="icon" href="images/logo.png" type="image/png">
+
+  <!-- Preconnect to external origins (speeds up CDN fetches) -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fakestoreapi.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- External CSS File -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome – loaded asynchronously so it doesn't block rendering -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+ 
+</head>
+
+<body>
+
+<!-- ================= HEADER SECTION ================= -->
+<header>
+  <div class="container header-main">
+
+    <!-- Logo Section -->
+    <div class="logo">Snapdeal</div>
+
+    <!-- Search Bar Section -->
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <!-- Input for searching products -->
+        <input type="text" id="searchInput" placeholder="Search products & brands" autocomplete="off">
+        <i class="fas fa-times clear-search" id="clearSearch"></i>
+      </div>
+
+      <!-- Smart Search Dropdown -->
+      <div class="search-dropdown" id="searchDropdown">
+        <!-- Populated dynamically by JS -->
+      </div>
+
+      <!-- Search Button with icon -->
+      <button type="button">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+
+    <!-- Right Side Header (Login, Cart, App Button) -->
+    <div class="header-right">
+
+      <!-- Login Section (Opens Modal Dialog) -->
+      <a href="javascript:void(0)" class="header-item login-item" id="loginBtn" onclick="openLoginModal()" style="text-decoration: none; color: inherit;">
+        <i class="fas fa-user"></i>
+        <span>Login</span>
+      </a>
+
+      <!-- Cart Section (Linked to cart.html) -->
+      <a href="cart.html" class="header-item cart-item" style="text-decoration: none; color: inherit;">
+        <div class="cart-icon-wrapper">
+          <!-- Cart Icon -->
+          <i class="fas fa-shopping-cart"></i>
+
+          <!-- Cart Item Count -->
+          <span class="cart-count" id="cartCount">0</span>
+        </div>
+        <span>Cart</span>
+      </a>
+
+      <!-- Download App Button (Linked to download-app.html) -->
+      <a href="download-app.html" class="download-app-btn" style="text-decoration: none;">
+        <i class="fas fa-mobile-alt"></i> Download App
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= NAVIGATION BAR ================= -->
+<nav class="category-nav">
+  <div class="container">
+    <ul class="nav-links">
+
+      <li class="nav-item">
+        <a href="#">
+          <img src="images/mens-fashion-icon.png" alt="Men's Fashion" class="nav-cat-icon" loading="lazy" decoding="async">
+          Men's Fashion <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-content">
+            <div class="column">
+              <h4>Clothing</h4>
+              <a href="#">T-Shirts</a>
+              <a href="#">Shirts</a>
+              <a href="#">Jeans</a>
+              <h4 style="margin-top:12px">Footwear</h4>
+              <a href="#">Sports Shoes</a>
+              <a href="#">Casual Shoes</a>
+              <a href="#">Slippers</a>
+            </div>
+            <div class="dd-products">
+              <h4 class="dd-products-title">Popular Picks</h4>
+              <div class="dd-product-list">
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/jeans.jpg" alt="Jeans" loading="lazy"><span class="dd-badge">70% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Denim Jeans</span><span class="dd-product-price">₹999 <del>₹2,499</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/tshirt.jpg" alt="T-Shirt" loading="lazy"><span class="dd-badge">63% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Cotton T-Shirt</span><span class="dd-product-price">₹449 <del>₹1,199</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/shoes.jpg" alt="Shoes" loading="lazy"><span class="dd-badge">63% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Sports Shoes</span><span class="dd-product-price">₹1,299 <del>₹3,499</del></span></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Women's Fashion Dropdown -->
+      <li class="nav-item">
+        <a href="#">
+          <img src="images/womens-fashion-icon.png" alt="Women's Fashion" class="nav-cat-icon" loading="lazy" decoding="async">
+          Women's Fashion <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-content">
+            <div class="column">
+              <h4>Ethnic Wear</h4>
+              <a href="#">Sarees</a>
+              <a href="#">Kurtas</a>
+              <a href="#">Salwar Suits</a>
+              <h4 style="margin-top:12px">Western Wear</h4>
+              <a href="#">Dresses</a>
+              <a href="#">Tops</a>
+              <a href="#">Trousers</a>
+            </div>
+            <div class="dd-products">
+              <h4 class="dd-products-title">Popular Picks</h4>
+              <div class="dd-product-list">
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/saree.jpg" alt="Saree" loading="lazy"><span class="dd-badge">63% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Banarasi Saree</span><span class="dd-product-price">₹1,299 <del>₹3,499</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/cosmetic.jpg" alt="Makeup" loading="lazy"><span class="dd-badge">63% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Makeup Kit</span><span class="dd-product-price">₹299 <del>₹799</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/sunglasses.jpg" alt="Sunglasses" loading="lazy"><span class="dd-badge">61% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Designer Sunglasses</span><span class="dd-product-price">₹349 <del>₹899</del></span></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Home & Kitchen Dropdown -->
+      <li class="nav-item">
+        <a href="#">
+          <img src="images/home-kitchen-icon.png" alt="Home &amp; Kitchen" class="nav-cat-icon" loading="lazy" decoding="async">
+          Home &amp; Kitchen <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-content">
+            <div class="column">
+              <h4>Kitchen</h4>
+              <a href="#">Cookware</a>
+              <a href="#">Appliances</a>
+              <a href="#">Dining</a>
+              <h4 style="margin-top:12px">Home Decor</h4>
+              <a href="#">Curtains</a>
+              <a href="#">Cushions</a>
+              <a href="#">Wall Decor</a>
+            </div>
+            <div class="dd-products">
+              <h4 class="dd-products-title">Popular Picks</h4>
+              <div class="dd-product-list">
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/cookware.jpg" alt="Cookware" loading="lazy"><span class="dd-badge">63% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Non-Stick Cookware</span><span class="dd-product-price">₹1,499 <del>₹3,999</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/steelkadhai.webp" alt="Kadai" loading="lazy"><span class="dd-badge">60% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Steel Kadai</span><span class="dd-product-price">₹799 <del>₹1,999</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/induction.png" alt="Induction" loading="lazy"><span class="dd-badge">56% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Induction Cooktop</span><span class="dd-product-price">₹2,199 <del>₹4,999</del></span></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Electronics Dropdown -->
+      <li class="nav-item">
+        <a href="#">
+          <img src="images/electronics-icon.png" alt="Electronics" class="nav-cat-icon" loading="lazy" decoding="async">
+          Electronics <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-content">
+            <div class="column">
+              <h4>Mobiles</h4>
+              <a href="#">Smartphones</a>
+              <a href="#">Accessories</a>
+              <h4 style="margin-top:12px">Computers</h4>
+              <a href="#">Laptops</a>
+              <a href="#">Printers</a>
+              <h4 style="margin-top:12px">Audio</h4>
+              <a href="#">Headphones</a>
+              <a href="#">Earbuds</a>
+            </div>
+            <div class="dd-products">
+              <h4 class="dd-products-title">Popular Picks</h4>
+              <div class="dd-product-list">
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/smartphone.jpg" alt="Smartphone" loading="lazy"><span class="dd-badge">50% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Smartphone 5G</span><span class="dd-product-price">₹9,999 <del>₹19,999</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/wirelessheadphone.jpg" alt="Headphones" loading="lazy"><span class="dd-badge">58% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Wireless Headphones</span><span class="dd-product-price">₹2,499 <del>₹5,999</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/bluetoothearbud.jpg" alt="Earbuds" loading="lazy"><span class="dd-badge">63% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Bluetooth Earbuds</span><span class="dd-product-price">₹1,299 <del>₹3,499</del></span></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Beauty & Health Dropdown -->
+      <li class="nav-item">
+        <a href="#">
+          <img src="images/beauty-health-icon.png" alt="Beauty &amp; Health" class="nav-cat-icon" loading="lazy" decoding="async">
+          Beauty &amp; Health <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-content">
+            <div class="column">
+              <h4>Beauty</h4>
+              <a href="#">Makeup</a>
+              <a href="#">Skincare</a>
+              <a href="#">Haircare</a>
+              <h4 style="margin-top:12px">Health</h4>
+              <a href="#">Supplements</a>
+              <a href="#">Devices</a>
+            </div>
+            <div class="dd-products">
+              <h4 class="dd-products-title">Popular Picks</h4>
+              <div class="dd-product-list">
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/makeupkit.jpg" alt="Makeup" loading="lazy"><span class="dd-badge">60% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Premium Makeup Kit</span><span class="dd-product-price">₹599 <del>₹1,499</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/vitamincserum.png" alt="Serum" loading="lazy"><span class="dd-badge">63% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Vitamin C Serum</span><span class="dd-product-price">₹299 <del>₹799</del></span></div>
+                </a>
+                <a href="#" class="dd-product-card">
+                  <div class="dd-product-img"><img src="images/sunscreenspf50.jpg" alt="Sunscreen" loading="lazy"><span class="dd-badge">60% OFF</span></div>
+                  <div class="dd-product-info"><span class="dd-product-name">Sunscreen SPF 50+</span><span class="dd-product-price">₹199 <del>₹499</del></span></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= MAIN SECTION ================= -->
+<main>
+
+  <!-- ===== Banner Section ===== -->
+  <section class="banner-slider">
+    <div class="carousel">
+      <div class="slides">
+        <div class="slide-link active"><img src="images/crausel 3.jpg" class="slide" alt="Banner 1" loading="eager" decoding="async"></div>
+        <div class="slide-link"><img src="images/crausel 4.jpg" class="slide" alt="Banner 2" loading="eager" decoding="async"></div>
+        <div class="slide-link"><img src="images/crausel 1.jpg" class="slide" alt="Banner 3" loading="eager" decoding="async"></div>
+        <div class="slide-link"><img src="images/crausel 5.jpg" class="slide" alt="Banner 4" loading="eager" decoding="async"></div>
+        <div class="slide-link"><img src="images/crausel 2.jpg" class="slide" alt="Banner 5" loading="eager" decoding="async"></div>
+      </div>
+      <button class="prev" aria-label="Previous slide">&#10094;</button>
+      <button class="next" aria-label="Next slide">&#10095;</button>
+      <div class="banner-indicators">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- ===== Service Features Section ===== -->
+    <section class="service-container">
+      <div class="service-box">
+        <div class="service-item">
+          <img src="images/freeshipping.png" alt="Free Delivery" loading="lazy" decoding="async" width="70" height="70">
+          <div class="service-info">
+            <h3>FREE Delivery</h3>
+            <p>On all Orders</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <img src="images/7dayseasyreturn.png" alt="Easy Returns" loading="lazy" decoding="async" width="70" height="70">
+          <div class="service-info">
+            <h3>7 days</h3>
+            <p>Easy Returns</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <img src="images/greatquality.png" alt="Best Prices" loading="lazy" decoding="async" width="70" height="70">
+          <div class="service-info">
+            <h3>Great Quality at</h3>
+            <p>Best Prices</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Product Section (API Data) ===== -->
+    <section class="deal-section">
+      <h2 class="section-title">Deal of the Day</h2>
+      <div class="deal-grid-container">
+        <div id="products" class="product-grid">
+          <div class="loading">Loading amazing deals...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== New Arrivals Section ===== -->
+    <section class="showcase-section" id="newArrivals">
+      <h2 class="showcase-title">New Arrivals</h2>
+      <div class="showcase-scroll-wrapper">
+        <button class="showcase-arrow showcase-arrow-left" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+        <div class="showcase-track">
+          <div class="showcase-card" data-product-id="4">
+            <span class="showcase-badge">NEW-IN</span>
+            <div class="showcase-card-img"><img src="images/kurta.png" alt="Kurtis Under Spotlight" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Kurtis Under Spotlight</span>
+              <span class="showcase-card-price">UNDER ₹499</span>
+            </div>
+          </div>
+          <div class="showcase-card" data-product-id="14">
+            <span class="showcase-badge">NEW-IN</span>
+            <div class="showcase-card-img"><img src="images/yoga-mat.png" alt="Yoga & Fitness Mats" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Yoga & Fitness Mats</span>
+              <span class="showcase-card-price">UNDER ₹299</span>
+            </div>
+          </div>
+          <div class="showcase-card" data-product-id="6">
+            <span class="showcase-badge">NEW-IN</span>
+            <div class="showcase-card-img"><img src="images/sports-shorts.png" alt="All-Day Boxers" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">All-Day Boxers</span>
+              <span class="showcase-card-price">UNDER ₹399</span>
+            </div>
+          </div>
+          <div class="showcase-card" data-product-id="5">
+            <span class="showcase-badge">NEW-IN</span>
+            <div class="showcase-card-img"><img src="images/shoes.jpg" alt="Comfiest Running Shoes" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Comfiest Running Shoes</span>
+              <span class="showcase-card-price">UNDER ₹1,299</span>
+            </div>
+          </div>
+          <div class="showcase-card" data-product-id="4">
+            <span class="showcase-badge">NEW-IN</span>
+            <div class="showcase-card-img"><img src="images/polo-tshirt.png" alt="Polo T-Shirts" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Polo T-Shirts</span>
+              <span class="showcase-card-price">UNDER ₹399</span>
+            </div>
+          </div>
+          <div class="showcase-card" data-product-id="1">
+            <span class="showcase-badge">NEW-IN</span>
+            <div class="showcase-card-img"><img src="images/saree.jpg" alt="Kurtas & Ethnic Wear" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Kurtas & Ethnic Wear</span>
+              <span class="showcase-card-price">UNDER ₹499</span>
+            </div>
+          </div>
+          <div class="showcase-card" data-product-id="6">
+            <span class="showcase-badge">NEW-IN</span>
+            <div class="showcase-card-img"><img src="images/jeans.jpg" alt="Denim Collection" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Denim Collection</span>
+              <span class="showcase-card-price">UNDER ₹999</span>
+            </div>
+          </div>
+          <div class="showcase-card" data-product-id="4">
+            <span class="showcase-badge">NEW-IN</span>
+            <div class="showcase-card-img"><img src="images/tshirt.jpg" alt="Casual T-Shirts" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Casual T-Shirts</span>
+              <span class="showcase-card-price">UNDER ₹449</span>
+            </div>
+          </div>
+        </div>
+        <button class="showcase-arrow showcase-arrow-right" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- ===== Trending Now Section ===== -->
+    <section class="showcase-section showcase-section-alt" id="trendingNow">
+      <h2 class="showcase-title">Trending Now 🔥</h2>
+      <div class="showcase-scroll-wrapper">
+        <button class="showcase-arrow showcase-arrow-left" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+        <div class="showcase-track">
+          <div class="showcase-card showcase-card-trending" data-product-id="3">
+            <span class="showcase-badge trending-badge">TRENDING</span>
+            <div class="showcase-card-img"><img src="images/smartphone.jpg" alt="5G Smartphones" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">5G Smartphones</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹9,999</span> <del class="showcase-mrp">₹19,999</del></span>
+              <span class="showcase-discount-tag">50% OFF</span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-trending" data-product-id="10">
+            <span class="showcase-badge trending-badge">TRENDING</span>
+            <div class="showcase-card-img"><img src="images/wirelessheadphone.jpg" alt="Wireless Headphones" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Wireless Headphones</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹2,499</span> <del class="showcase-mrp">₹5,999</del></span>
+              <span class="showcase-discount-tag">58% OFF</span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-trending" data-product-id="11">
+            <span class="showcase-badge trending-badge">TRENDING</span>
+            <div class="showcase-card-img"><img src="images/bluetoothearbud.jpg" alt="TWS Earbuds" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">TWS Earbuds</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹1,299</span> <del class="showcase-mrp">₹3,499</del></span>
+              <span class="showcase-discount-tag">63% OFF</span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-trending">
+            <span class="showcase-badge trending-badge">TRENDING</span>
+            <div class="showcase-card-img"><img src="images/smartwatch.png" alt="Smart Watches" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Smart Watches</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹1,999</span> <del class="showcase-mrp">₹5,999</del></span>
+              <span class="showcase-discount-tag">67% OFF</span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-trending">
+            <span class="showcase-badge trending-badge">TRENDING</span>
+            <div class="showcase-card-img"><img src="images/bluetooth-speaker.png" alt="Bluetooth Speakers" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Bluetooth Speakers</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹899</span> <del class="showcase-mrp">₹2,499</del></span>
+              <span class="showcase-discount-tag">64% OFF</span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-trending" data-product-id="15">
+            <span class="showcase-badge trending-badge">TRENDING</span>
+            <div class="showcase-card-img"><img src="images/induction.png" alt="Induction Cooktops" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Induction Cooktops</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹2,199</span> <del class="showcase-mrp">₹4,999</del></span>
+              <span class="showcase-discount-tag">56% OFF</span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-trending">
+            <span class="showcase-badge trending-badge">TRENDING</span>
+            <div class="showcase-card-img"><img src="images/desk-lamp.png" alt="LED Desk Lamps" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">LED Desk Lamps</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹499</span> <del class="showcase-mrp">₹1,299</del></span>
+              <span class="showcase-discount-tag">62% OFF</span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-trending" data-product-id="2">
+            <span class="showcase-badge trending-badge">TRENDING</span>
+            <div class="showcase-card-img"><img src="images/cookware.jpg" alt="Cookware Sets" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Cookware Sets</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹1,499</span> <del class="showcase-mrp">₹3,999</del></span>
+              <span class="showcase-discount-tag">63% OFF</span>
+            </div>
+          </div>
+        </div>
+        <button class="showcase-arrow showcase-arrow-right" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- ===== Budget Buys Section ===== -->
+    <section class="showcase-section" id="budgetBuys">
+      <h2 class="showcase-title">Budget Buys Under ₹999</h2>
+      <div class="showcase-scroll-wrapper">
+        <button class="showcase-arrow showcase-arrow-left" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+        <div class="showcase-track">
+          <div class="showcase-card showcase-card-budget" data-product-id="9">
+            <span class="showcase-badge budget-badge">BEST VALUE</span>
+            <div class="showcase-card-img"><img src="images/makeupkit.jpg" alt="Premium Makeup Kit" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Premium Makeup Kit</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹599</span> <del class="showcase-mrp">₹1,499</del></span>
+              <span class="showcase-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <small>4.6</small></span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-budget" data-product-id="8">
+            <span class="showcase-badge budget-badge">BEST VALUE</span>
+            <div class="showcase-card-img"><img src="images/sunglasses.jpg" alt="Designer Sunglasses" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Designer Sunglasses</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹349</span> <del class="showcase-mrp">₹899</del></span>
+              <span class="showcase-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <small>4.2</small></span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-budget" data-product-id="12">
+            <span class="showcase-badge budget-badge">BEST VALUE</span>
+            <div class="showcase-card-img"><img src="images/vitamincserum.png" alt="Vitamin C Serum" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Vitamin C Serum</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹299</span> <del class="showcase-mrp">₹799</del></span>
+              <span class="showcase-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <small>4.4</small></span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-budget" data-product-id="13">
+            <span class="showcase-badge budget-badge">BEST VALUE</span>
+            <div class="showcase-card-img"><img src="images/sunscreenspf50.jpg" alt="Sunscreen SPF 50+" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Sunscreen SPF 50+</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹199</span> <del class="showcase-mrp">₹499</del></span>
+              <span class="showcase-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <small>4.5</small></span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-budget" data-product-id="16">
+            <span class="showcase-badge budget-badge">BEST VALUE</span>
+            <div class="showcase-card-img"><img src="images/cosmetic.jpg" alt="Cosmetics Combo" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Cosmetics Combo</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹299</span> <del class="showcase-mrp">₹799</del></span>
+              <span class="showcase-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <small>4.2</small></span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-budget" data-product-id="7">
+            <span class="showcase-badge budget-badge">BEST VALUE</span>
+            <div class="showcase-card-img"><img src="images/laptop-bag.png" alt="Premium Laptop Bag" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Premium Laptop Bag</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹799</span> <del class="showcase-mrp">₹1,999</del></span>
+              <span class="showcase-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <small>4.3</small></span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-budget" data-product-id="14">
+            <span class="showcase-badge budget-badge">BEST VALUE</span>
+            <div class="showcase-card-img"><img src="images/steelkadhai.webp" alt="Steel Kadai" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Steel Kadai with Lid</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹799</span> <del class="showcase-mrp">₹1,999</del></span>
+              <span class="showcase-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <small>4.3</small></span>
+            </div>
+          </div>
+          <div class="showcase-card showcase-card-budget" data-product-id="4">
+            <span class="showcase-badge budget-badge">BEST VALUE</span>
+            <div class="showcase-card-img"><img src="images/tshirt.jpg" alt="Cotton T-Shirts" loading="lazy" decoding="async"></div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-name">Cotton T-Shirts</span>
+              <span class="showcase-card-price-row"><span class="showcase-sale-price">₹449</span> <del class="showcase-mrp">₹1,199</del></span>
+              <span class="showcase-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <small>4.1</small></span>
+            </div>
+          </div>
+        </div>
+        <button class="showcase-arrow showcase-arrow-right" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- ===== Download App Banner ===== -->
+    <section class="app-banner">
+      <div class="app-banner-content">
+        <div class="app-text-side">
+          <h1>Scan to Download <br><span>Snapdeal</span> App Now!</h1>
+          <ul class="app-features">
+            <li><i class="fas fa-check-circle"></i> Latest Deals, Offers etc</li>
+            <li><i class="fas fa-check-circle"></i> Price Drop Alerts</li>
+            <li><i class="fas fa-check-circle"></i> Real-time Order Updates</li>
+          </ul>
+          <div class="qr-container">
+            <img src="images/scanner.jpg" alt="QR Code" class="qr-image" loading="lazy" decoding="async">
+          </div>
+          <a href="download-app.html" class="banner-download-btn">
+            Download Now <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="app-image-side">
+          <div class="triple-mockup">
+            <img src="images/snapdeal.jpg" alt="Snapdeal App Mockup" class="mockup-bg left" loading="lazy" decoding="async">
+            <img src="images/snapdeal.jpg" alt="Snapdeal App Mockup" class="mockup-bg right" loading="lazy" decoding="async">
+            <img src="images/snapdeal.jpg" alt="Snapdeal App Mockup" class="mockup-main" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-top-grid">
+      <!-- Column 1: About -->
+      <div class="footer-col">
+        <h4>ABOUT</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Snapdeal Stories</a>
+        <a href="#">Press</a>
+        <a href="#">Corporate Information</a>
+      </div>
+
+      <!-- Column 2: Group Companies -->
+      <div class="footer-col">
+        <h4>GROUP COMPANIES</h4>
+        <a href="#">Myntra</a>
+        <a href="#">Cleartrip</a>
+        <a href="#">Shopsy</a>
+      </div>
+
+      <!-- Column 3: Help -->
+      <div class="footer-col">
+        <h4>HELP</h4>
+        <a href="#">Payments</a>
+        <a href="#">Shipping</a>
+        <a href="#">Cancellation & Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+
+      <!-- Column 4: Consumer Policy -->
+      <div class="footer-col">
+        <h4>CONSUMER POLICY</h4>
+        <a href="#">Cancellation & Returns</a>
+        <a href="#">Terms Of Use</a>
+        <a href="#">Security</a>
+        <a href="#">Privacy</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Grievance Redressal</a>
+        <a href="#">EPR Compliance</a>
+      </div>
+
+      <!-- Column 5: Mail Us -->
+      <div class="footer-col border-left">
+        <h4>Mail Us:</h4>
+        <p>Snapdeal Private Limited,<br>
+           Buildings Alyssa, Begonia &<br>
+           Clove Embassy Tech Village,<br>
+           Outer Ring Road, Devarabeesanahalli Village,<br>
+           Bengaluru, 560103,<br>
+           Karnataka, India</p>
+        <div class="social-links-footer">
+          <span>Social:</span>
+          <div class="icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 6: Office Address -->
+      <div class="footer-col">
+        <h4>Registered Office Address:</h4>
+        <p>Snapdeal Private Limited,<br>
+           Buildings Alyssa, Begonia &<br>
+           Clove Embassy Tech Village,<br>
+           Outer Ring Road, Devarabeesanahalli Village,<br>
+           Bengaluru, 560103,<br>
+           Karnataka, India<br>
+           CIN : U51109KA2012PTC066107<br>
+           Telephone: <span class="highlight">044-45614700</span> / <span class="highlight">044-67415800</span></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom-strip">
+      <div class="bottom-links">
+        <a href="#"><i class="fas fa-briefcase"></i> Become a Seller</a>
+        <a href="#"><i class="fas fa-star"></i> Advertise</a>
+        <a href="#"><i class="fas fa-gift"></i> Gift Cards</a>
+        <a href="#"><i class="fas fa-question-circle"></i> Help Center</a>
+      </div>
+      <div class="copyright-text">
+        © 2007-2026 Snapdeal.com
+      </div>
+      <div class="payment-methods">
+        <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c4544e.svg" alt="Payments" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= LOGIN MODAL DIALOG ================= -->
+<div class="login-modal-overlay" id="loginModalOverlay" onclick="closeLoginModal(event)">
+  <div class="login-modal" onclick="event.stopPropagation()">
+
+    <!-- Close Button -->
+    <button class="login-modal-close" id="loginModalClose" onclick="closeLoginModal(event, true)" aria-label="Close login dialog">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Logo -->
+    <div class="login-modal-logo">Snapdeal</div>
+
+    <!-- Tabs -->
+    <div class="login-modal-tabs">
+      <div class="login-modal-tab active" id="loginTab" onclick="switchModalTab('login')">Login</div>
+      <div class="login-modal-tab" id="signupTab" onclick="switchModalTab('signup')">Sign Up</div>
+    </div>
+
+    <!-- Login Form -->
+    <form id="modal-login-form" class="login-modal-form" onsubmit="event.preventDefault()">
+      <div class="login-modal-field">
+        <label>Mobile Number/Email ID</label>
+        <input type="text" placeholder="Enter Mobile Number or Email" required>
+      </div>
+      <div class="login-modal-field">
+        <label>Password</label>
+        <div class="login-modal-password-wrapper">
+          <input type="password" id="loginPassword" placeholder="Enter Password" required>
+          <i class="fas fa-eye-slash login-modal-eye" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPassword', this)"></i>
+        </div>
+      </div>
+      <button type="submit" class="login-modal-btn">LOGIN</button>
+      <div class="login-modal-forgot">
+        <a href="#">Forgot Password?</a>
+      </div>
+    </form>
+
+    <!-- Signup Form (hidden by default) -->
+    <form id="modal-signup-form" class="login-modal-form" style="display:none;" onsubmit="event.preventDefault()">
+      <div class="login-modal-field">
+        <label>Mobile Number</label>
+        <input type="text" placeholder="Enter Mobile Number" required>
+      </div>
+      <div class="login-modal-field">
+        <label>Email ID (Optional)</label>
+        <input type="email" placeholder="Enter Email">
+      </div>
+      <div class="login-modal-field">
+        <label>Create Password</label>
+        <div class="login-modal-password-wrapper">
+          <input type="password" id="signupPassword" placeholder="Create Password" required>
+          <i class="fas fa-eye-slash login-modal-eye" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPassword', this)"></i>
+        </div>
+      </div>
+      <button type="submit" class="login-modal-btn">CONTINUE</button>
+    </form>
+
+    <!-- Social Login -->
+    <div class="login-modal-social">
+      <div class="login-modal-divider"><span>or continue with</span></div>
+      <div class="login-modal-social-btns">
+        <button class="login-modal-social-btn facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </button>
+        <button class="login-modal-social-btn google">
+          <i class="fab fa-google"></i> Google
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="login-modal-terms">
+      By continuing, you agree to Snapdeal's <br>
+      <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= PRODUCT DETAIL MODAL ================= -->
+<div class="product-detail-overlay" id="productDetailOverlay" onclick="closeProductDetail(event)">
+  <div class="product-detail-modal" onclick="event.stopPropagation()">
+    <button class="product-detail-close" onclick="closeProductDetail(null, true)" aria-label="Close product detail">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="product-detail-body">
+      <div class="product-detail-image-section">
+        <div class="product-detail-img-wrapper">
+          <img id="pdImage" src="" alt="Product">
+        </div>
+        <div class="product-detail-thumbnails" id="pdThumbnails"></div>
+      </div>
+      <div class="product-detail-info-section">
+        <span class="product-detail-badge" id="pdBadge">DEAL OF THE DAY</span>
+        <h2 class="product-detail-title" id="pdTitle"></h2>
+        <div class="product-detail-rating" id="pdRating">
+          <div class="stars"></div>
+          <span class="rating-count"></span>
+        </div>
+        <div class="product-detail-price-block">
+          <span class="product-detail-price" id="pdPrice"></span>
+          <span class="product-detail-mrp" id="pdMrp"></span>
+          <span class="product-detail-discount-tag" id="pdDiscountTag"></span>
+        </div>
+        <p class="product-detail-desc" id="pdDesc"></p>
+        <ul class="product-detail-highlights" id="pdHighlights"></ul>
+        <div class="product-detail-delivery">
+          <i class="fas fa-truck"></i>
+          <span>Free Delivery by <strong id="pdDeliveryDate"></strong></span>
+        </div>
+        <div class="product-detail-actions">
+          <button class="pd-btn pd-add-cart" id="pdAddCart" onclick="addToCartFromDetail()">
+            <i class="fas fa-shopping-cart"></i> ADD TO CART
+          </button>
+          <button class="pd-btn pd-buy-now" id="pdBuyNow" onclick="buyNowFromDetail()">
+            <i class="fas fa-bolt"></i> BUY NOW
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= JAVASCRIPT (deferred) ================= -->
+<script src="script.js" defer></script>
+
+</body>
+</html>
